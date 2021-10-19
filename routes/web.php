@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NotesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('save_data',[NotesController::class , 'saveData'])->name('notes.saveData');
+Route::get('update_data',[NotesController::class , 'updateData'])->name('notes.updateData');
+Route::get('get_data',[NotesController::class , 'getData'])->name('notes.getData');
+Route::get('notes/{id?}',[NotesController::class , 'index'])->name('notes.index');
+
